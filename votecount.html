@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Count</title>
+    <style>
+        table{
+            display: none;
+            /* border: 1px solid black; */
+            border-collapse : collapse;
+            text-align: center;
+            margin : 50px auto;
+        }
+        tr{
+            border: 1px solid black;
+        }
+        th{
+            border: 1px solid black;
+        }
+        td{
+            border: 1px solid black;
+        }
+        caption{
+            border: 1px solid black;
+        }
+
+        #bjp,#cong,#sub{
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <form name="myform" onsubmit="return tablefunction()">
+        <input type="button" value = "BJP" id="bjp"><br/><br><br>
+        <input type="button" value = "CONGRESS" id="cong"><br/><br><br>
+        <input type = "submit" value="SUBMIT" id="sub">
+    </form>
+    <table><caption> RESULT </caption>
+        <tr>
+            <th>PARTIES</th>
+            <th>NUMBER OF VOTES</th>
+        </tr>
+        <tr>
+            <td>BJP</td>
+            <td id ="display1"></td>
+        </tr>
+        <tr>
+            <td>CONGRESS</td>
+            <td id ="display2"></td>
+        </tr>
+    </table>
+
+
+    <script>
+        const bjp = document.getElementById('bjp');
+        const cong = document.getElementById('cong');
+        let display1 = document.getElementById('display1');
+        let display2 = document.getElementById('display2');
+        const table = document.querySelector('table');
+        let count1 = 0;
+        let count2 = 0;
+
+        function tablefunction(){
+            table.style.display = 'block';
+
+            display1.innerHTML = count1;
+            display2.innerHTML = count2;
+
+            return false;
+        }
+
+        bjp.addEventListener('click' , ()=>{
+            count1++;
+            // display1.innerHTML = count1;
+        });
+
+        cong.addEventListener('click' , ()=>{
+            count2++;
+            // display2.innerHTML = count2;
+        });
+
+    </script>
+</body>
+</html>
